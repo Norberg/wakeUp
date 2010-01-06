@@ -1,0 +1,6 @@
+rename retrive_iCal.py.example to  retrive_iCal.py and change the settings
+to get started, wakeUp will fireup on events of type WakeUp in your iCal files
+this application needs to be able to get your iCal files by some meens(caldav) 
+one way is from a CalendarServer (http://trac.calendarserver.org/), changes to 
+retrive_iCal.py may be needed if you retrive the file over any other way than 
+caldav
