@@ -51,13 +51,14 @@ class WakeUp:
 					wakeUpAction.onWakeUp()
 					self.alarmActive = True
 				break
-		if self.alarmActive:
-			wakeUpAction.afterWakeUp()
-			self.alarmActive = False
+			elif self.alarmActive:
+				wakeUpAction.afterWakeUp()
+				self.alarmActive = False
 
 	def run(self):
 		while 1:
 			sys.stdout.write(".")
+			sys.stdout.flush()
 			self.mainLoop()
 			sleep(30)
 
