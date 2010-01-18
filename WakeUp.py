@@ -52,7 +52,7 @@ class WakeUp:
 				if not self.alarmActive:
 					wakeUpAction.onWakeUp()
 					self.alarmActive = True
-				break
+				return
 		if self.alarmActive:
 			wakeUpAction.afterWakeUp()
 			self.alarmActive = False
