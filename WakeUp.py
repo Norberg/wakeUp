@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import vobject, datetime, os, sys
 from time import sleep
 
@@ -51,9 +53,9 @@ class WakeUp:
 					wakeUpAction.onWakeUp()
 					self.alarmActive = True
 				break
-			elif self.alarmActive:
-				wakeUpAction.afterWakeUp()
-				self.alarmActive = False
+		if self.alarmActive:
+			wakeUpAction.afterWakeUp()
+			self.alarmActive = False
 
 	def run(self):
 		while 1:

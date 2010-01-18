@@ -1,2 +1,3 @@
+killall WakeUp.py
 cd /home/simon/wakeUp
-nohup python WakeUp.py &
+nohup ./WakeUp.py &
