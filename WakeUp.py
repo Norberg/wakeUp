@@ -32,6 +32,11 @@ class WakeUp:
 				continue
 
 			if event.categories.value == [u'WakeUp']:
+				#Reacuring event
+				if event.rruleset:
+					print "reacuring event.. not handeld"
+					#for date in event.rruleset:
+						
 				tz = event.dtstart.value.tzinfo
 				start = event.dtstart.value.utctimetuple()
 				end = event.dtend.value.utctimetuple()
