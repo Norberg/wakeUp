@@ -32,15 +32,19 @@ class WakeUp:
 				continue
 
 			if event.categories.value == [u'WakeUp']:
-				#Reacuring event
-				if event.rruleset:
-					print "reacuring event.. not handeld"
-					#for date in event.rruleset:
-						
 				tz = event.dtstart.value.tzinfo
 				start = event.dtstart.value.utctimetuple()
 				end = event.dtend.value.utctimetuple()
+				diff = event.dtend.value - event.dtstart.value
 				now = datetime.datetime.utcnow().utctimetuple()
+				#Reacuring event
+				if event.rruleset:
+					for date in event.rruleset:
+						start = date.utctimetuple()
+						end = date + diff
+						end = end.utctimetuple()
+						if end > now:
+							break #alarm found
 				#only append if alarm havent allready gone off
 				if end > now:
 					self.wakeUpTimes.append([start, end])

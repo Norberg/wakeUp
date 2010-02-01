@@ -7,8 +7,8 @@ def onWakeUp():
 	#os.popen("play ~/music/*.wav fade h 60 &> /dev/null")
 	for i in xrange(255):
 		writeLED.writeLED_PWM("w", i)
-		time.sleep(0.2)
-	os.popen("alsaplayer ~/music/*.au")
+		time.sleep(0.4)
+	os.popen("alsaplayer ~/music/*.au &> /dev/null")
 
 #cleanup action to do after wakeup
 def afterWakeUp():
