@@ -4,20 +4,24 @@ import writeLED
 
 #add actions to be done on wakeup here
 def onWakeUp():
-	#toke to much cpu :(
-	#os.popen("play ~/music/*.wav fade h 60 &> /dev/null")
+	i = 1 
+	while i < 255:
+		i = i*1.1
+		writeLED.writeLED_PWM("r", int(i))
+		writeLED.writeLED_PWM("g", int(i))
+		writeLED.writeLED_PWM("b", int(i))
+		time.sleep(0.2)
 	Popen(["mplayer", "http://http-live.sr.se/p3-mp3-192"])
-	print "next"
-#	for i in xrange(255):
-#		#writeLED.writeLED_PWM("w", i)
-#		time.sleep(0.4)
-#	os.popen("alsaplayer ~/music/*.au &> /dev/null")
 
 #cleanup action to do after wakeup
 def afterWakeUp():
-	#turn of musixc
+	#turn of music
 	Popen(["killall", "mplayer"])
-	#writeLED.writeLED_PWM("w", 0)
+	writeLED.writeLED_PWM("r", 0)
+	writeLED.writeLED_PWM("g", 0)
+	writeLED.writeLED_PWM("b", 0)
 
 if __name__ == "__main__":
 	onWakeUp()
+	time.sleep(10)
+	afterWakeUp()
