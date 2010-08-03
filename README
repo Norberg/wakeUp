@@ -2,5 +2,11 @@ rename retrive_iCal.py.example to  retrive_iCal.py and change the settings
 to get started, wakeUp will fireup on events of type WakeUp in your iCal files
 this application needs to be able to get your iCal files by some meens(caldav) 
 one way is from a CalendarServer (http://trac.calendarserver.org/), changes to 
-retrive_iCal.py may be needed if you retrive the file over any other way than 
+retrive_iCal.py may be needed if you retrieve the file over any other way than 
 caldav
+
+WakeOnLan:
+you will need the program wakeonlan for this to work, install with 
+sudo apt-get install wakeonlan on debian and ubuntu
+to enable WakeOnLan create a file called computers.wol filled with mac address
+(separated by newline) of computers you wish to wake up 

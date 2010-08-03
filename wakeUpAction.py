@@ -1,4 +1,4 @@
-import time
+import time, os
 from subprocess import Popen
 import writeLED
 
@@ -12,6 +12,8 @@ def onWakeUp():
 		writeLED.writeLED_PWM("b", int(i))
 		time.sleep(0.2)
 	Popen(["mplayer", "http://http-live.sr.se/p3-mp3-192"])
+	if os.path.isfile("computers.wol"):	
+		Popen(["wakeonlan", "-f computers.wol"])
 
 #cleanup action to do after wakeup
 def afterWakeUp():
