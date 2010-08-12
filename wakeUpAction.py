@@ -10,7 +10,7 @@ def onWakeUp():
 		writeLED.writeLED_PWM("r", int(i))
 		writeLED.writeLED_PWM("g", int(i))
 		writeLED.writeLED_PWM("b", int(i))
-		time.sleep(0.2)
+		time.sleep(1)
 	Popen(["mplayer", "http://http-live.sr.se/p3-mp3-192"])
 	if os.path.isfile("computers.wol"):	
 		Popen(["wakeonlan", "-f computers.wol"])
